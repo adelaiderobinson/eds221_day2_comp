@@ -54,3 +54,85 @@ dog_food[2]
 #or name
 dog_food["khora"]
 ```
+
+```{r}
+cars <- c("blue", "orange", "white")
+cars[1]
+i <- seq(1:2)
+cars[i]
+```
+
+```{r}
+#replace white with yellow
+cars[3] <- "yellow"
+cars
+```
+
+# Matrices
+
+```{r}
+#creating a matrix, filling by column instread of row
+fish_size <- matrix(c(12, 14, 18, 20), ncol =2, nrow =2, byrow =FALSE)
+class(fish_size)
+typeof(fish_size)
+#example indexing
+fish_size[1,1]
+fish_size[2,1] # 2nd row 1st column
+
+```
+
+## what happens if we create a matrix with different type of data
+
+```{r}
+#converts all to character 
+fish_type2 <- matrix(c(12, "trout", 18, 13L), ncol =2, nrow =2, byrow =FALSE)
+class(fish_type2)
+typeof(fish_type2)
+
+#look at second row but keep all columns
+fish_type2[2,]
+#keep all rows only 1st column
+fish_type2[,1]
+```
+
+# Lists
+
+Reminder: A list combined vectors that can be of different length and type
+
+```{r}
+urchins <- list("blue", c(1,2,3), c("a cat", "a dog"),
+                5L)
+#look at output
+#[[]] = element of the list
+# return information w/in element as a vector, character vector
+urchins[[3]]
+#return still as a list
+urchins [3]
+```
+
+### Make a named list
+
+```{r}
+tacos <- list(topping = c("onion", "cilantro",
+                          "guacamole"), filling = c("beans", "meat", "veggie"), price = c(6.75, 8.25, 9.50))
+tacos
+#indexing list elements by name
+tacos$filling[2]
+a <- c(1,2,3)
+b <- c(3,4,5)
+my_ttest <- t.test(a,b)
+my_ttest
+class(my_ttest)
+#because it is in a list i can call certain elements
+my_ttest$p.value #take the p value out
+
+
+```
+
+The price of a veggie burritro w/ guacamole is 9.50, this is not written reproduceably
+
+```{r}
+my_list <- list(cats =c(1,2,3), dogs =c(10,11,12))
+```
+
+the second value of dogs is `r my_list$dogs[2]`
