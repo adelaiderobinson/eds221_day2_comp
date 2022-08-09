@@ -7,6 +7,10 @@ execute:
   message: false
 ---
 
+```{r}
+library(tidyverse)
+```
+
 # Vectors
 
 ```{r}
@@ -135,4 +139,43 @@ The price of a veggie burritro w/ guacamole is 9.50, this is not written reprodu
 my_list <- list(cats =c(1,2,3), dogs =c(10,11,12))
 ```
 
+this is reproduceable
+
 the second value of dogs is `r my_list$dogs[2]`
+
+back tick and r to use code in line
+
+# Data frames
+
+under the hood a list of vectors with each **having the same length**
+
+this allows different columns to have different classes.
+
+```{r}
+topping <- c("onion", "cilantro", "guacamole")
+filling <- c("beans", "meat", "veggies")
+price <- c(6.75, 8.25, 9.5)
+
+df_ex_1 <- data.frame(topping, filling, price)
+class(df_ex_1)
+
+df_ex_2 <- data.frame(topping = c("sour cream", "salsa", "cheese"), filling = c("chicken", "cheese", "cabbage"), price = c(12.50, 13.75, 15.00))
+
+#another way to make a dataframe using tribble
+#allows you to write it in the same organization as you would see it in the dataframe
+df_ex_3 <- tribble(
+  ~topping, ~filling, ~price,
+  "avocado", "steak", 13.25,
+  "raddish", "fish", 10.40,
+  "salsa", "veggies", 9.75
+)
+class(df_ex_3)
+#class additionally associated with data.frame
+df_ex_3$price
+df_ex_3$price[3]
+
+```
+
+```{r}
+
+```
